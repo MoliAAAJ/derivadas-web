@@ -8,13 +8,7 @@ function derivar() {
   }
 
   try {
-    // Parsear expresión
-    const expr = math.parse(input);
-
-    // Derivar
-    const derivada = math.derivative(expr, 'x');
-
-    // Convertir a LaTeX
+    const derivada = math.derivative(input, 'x');
     const latex = derivada.toTex();
 
     resultadoDiv.innerHTML = `
