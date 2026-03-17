@@ -16,7 +16,7 @@ https://moliaaaj.github.io/derivadas-web/
 - HTML5
 - CSS3
 - JavaScript
-- Nerdamer
+- Math
 - MathJax
 
 ## 📦 Uso

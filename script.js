@@ -1,10 +1,5 @@
-function normalizarFuncion(input) {
-  // Reemplaza log(...) por ln(...)
-  return input.replace(/log\(/g, "ln(");
-}
-
 function derivar() {
-  let input = document.getElementById("funcion").value.trim();
+  const input = document.getElementById("funcion").value.trim();
   const resultadoDiv = document.getElementById("resultado");
 
   if (!input) {
@@ -13,17 +8,14 @@ function derivar() {
   }
 
   try {
-    // Normalizar entrada
-    input = normalizarFuncion(input);
-
     // Parsear expresión
-    const expr = nerdamer(input);
+    const expr = math.parse(input);
 
     // Derivar
-    const derivada = nerdamer.diff(expr, 'x');
+    const derivada = math.derivative(expr, 'x');
 
-    // Pasar a LaTeX
-    const latex = derivada.toTeX();
+    // Convertir a LaTeX
+    const latex = derivada.toTex();
 
     resultadoDiv.innerHTML = `
       <p>Resultado:</p>
