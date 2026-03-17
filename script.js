@@ -8,11 +8,16 @@ function derivar() {
   }
 
   try {
-    const derivada = nerdamer.diff(input, 'x').toTeX();
+    // Calcula derivada
+    const expr = nerdamer(input);
+    const derivada = nerdamer.diff(expr, 'x');
+
+    // Convertir a LaTeX
+    const latex = derivada.toTeX();
 
     resultadoDiv.innerHTML = `
       <p>Resultado:</p>
-      <p class="math">$$${derivada}$$</p>
+      <p class="math">$$${latex}$$</p>
     `;
 
     if (window.MathJax) {
@@ -20,6 +25,7 @@ function derivar() {
     }
 
   } catch (error) {
+    console.error(error); // IMPORTANTE para debug
     resultadoDiv.innerHTML = "❌ Error: función inválida";
   }
 }
