@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Derivadas</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Nerdamer -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nerdamer/1.1.13/nerdamer.core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nerdamer/1.1.13/Algebra.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nerdamer/1.1.13/Calculus.js"></script>
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$']] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Calculadora de Derivadas</h1>
+    <p class="subtitle">Derivación simbólica en tiempo real</p>
+
+    <input type="text" id="funcion" placeholder="Ej: x^2 + log(x)">
+    
+    <button onclick="derivar()">Derivar</button>
+
+    <div id="resultado"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
