@@ -1,5 +1,10 @@
+function normalizarFuncion(input) {
+  // Reemplaza log(...) por ln(...)
+  return input.replace(/log\(/g, "ln(");
+}
+
 function derivar() {
-  const input = document.getElementById("funcion").value.trim();
+  let input = document.getElementById("funcion").value.trim();
   const resultadoDiv = document.getElementById("resultado");
 
   if (!input) {
@@ -8,11 +13,16 @@ function derivar() {
   }
 
   try {
-    // Calcula derivada
+    // Normalizar entrada
+    input = normalizarFuncion(input);
+
+    // Parsear expresión
     const expr = nerdamer(input);
+
+    // Derivar
     const derivada = nerdamer.diff(expr, 'x');
 
-    // Convertir a LaTeX
+    // Pasar a LaTeX
     const latex = derivada.toTeX();
 
     resultadoDiv.innerHTML = `
@@ -25,7 +35,7 @@ function derivar() {
     }
 
   } catch (error) {
-    console.error(error); // IMPORTANTE para debug
+    console.error(error);
     resultadoDiv.innerHTML = "❌ Error: función inválida";
   }
 }
